@@ -101,7 +101,7 @@ function [k_hat,m_hat,d_hat] = calc_all(U,n,y_0,t_0,y_n,t_n,y_inf)
     
     beta_w_n = 1/(t_n - t_0)*log((y_0 - y_inf)/(y_n - y_inf));
     
-    w_hat_n = norm(w_hat_d, beta_w_n);
+    w_hat_n = sqrt(w_hat_d^2 + beta_w_n^2);
     
     beta_hat = beta_w_n/w_hat_n;
     

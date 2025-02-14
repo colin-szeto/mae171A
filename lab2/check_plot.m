@@ -9,7 +9,7 @@ plot(time,enc2); hold on
 title(dir)
 
 
-n = 9;
+n = 8;
 y_0 = 4468;
 t_0 = 5.774;
 y_n = -898;
@@ -19,3 +19,6 @@ y_inf = -1350;
 plot(t_0,y_0,'o',markersize=10)
 plot(t_n,y_n,'o',markersize=10)
 plot([t_0 t_n],[y_inf y_inf],'--')
+
+
+

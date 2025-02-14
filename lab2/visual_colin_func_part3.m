@@ -143,6 +143,7 @@ m_hat =  (k_hat) *(1/w_hat_d);
 
 d_hat = k_hat* 2 * (2*beta_hat/m_hat); % d2
 
+k_hat
 m_hat
 d_hat
 
