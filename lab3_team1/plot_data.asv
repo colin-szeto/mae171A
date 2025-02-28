@@ -1,0 +1,40 @@
+clear; close all; clc; 
+% thermal resistance R
+
+
+temps = [23.0,23.0,23.0,23.0,23.0,23.0,23.0,23.0,23.0,23.0,23.0]; 
+delta_t = [47.5,47.5,47.5,47.5,47.5,47.5,47.5,47.5,47.5,47.5,47.5];
+
+
+
+wattage = [10.5,10.5,10.5,10.5,10.7,10.5,10.5,10.5,10.5,10.7,10.5];
+
+
+%101 mm 
+%101 mm
+
+% area of the plate
+area = 0.101 ^2;
+qdot = sum(wattage)/length(wattage); % heat flux
+delta_t = 47.5; 
+
+% heat transfer coefficient (indicates how well the heat is transfered from
+% the surface ot the air
+alpha = qdot/((area)*delta_t);
+
+% heating surface load 
+dsmalldot = qdot/area;
+
+%themal resistance
+slope = delta_t(1)./wattage;
+temp = sum(slope)/length(slope);
+
+lamda = 0.026 
+
+% Nusselt Number Nu
+Nu = alpha*0.101
+
+
+
+
+
