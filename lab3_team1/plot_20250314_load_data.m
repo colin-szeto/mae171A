@@ -16,7 +16,6 @@ xlabel('Electrical power P_e_l [W]')
 
 % skipping page 74 as all of our temp differences are the same
 
-figure(2)
 
 ssf_test1 = importdata('test_2_steady_state.txt');
 sst2_v = ssf_test1.data(:,5); % voltage
@@ -31,10 +30,6 @@ test25w_Nu = ssf_test1.data(1:10,2); % Nu
 
 
 
-plot([0 mean(ssf_test1_v)] ,[0 mean(ssf_test1_dt)]) % test 1
-hold on
-
-plot([0 mean(test25w_v) mean(sst2_v)],[0 mean(test25w_dt) mean(sst2_dt)]) % test 2
 
 
 
@@ -51,28 +46,22 @@ test3_20w_Nu = test3_20.data(:,2); % Nu
 
 
 
+figure(2)
+plot([0 mean(ssf_test1_v)] ,[0 mean(ssf_test1_dt)]) % test 1
+hold on
+plot([mean(test25w_v) mean(sst2_v)],[mean(test25w_dt) mean(sst2_dt)]) % test 2
+plot([mean(test3_5w_v) mean(test3_20w_v)],[mean(test3_5w_dt) mean(test3_20w_dt)])
+scatter(test25w_v,test25w_dt,color='black',Markerfacecolor='red')
+scatter(sst2_v,sst2_dt,color='red',Markerfacecolor='red')
+scatter(test3_5w_v,test3_5w_dt,Markerfacecolor='blue')
+scatter(test3_20w_v,test3_20w_dt,Markerfacecolor='blue')
 
-plot([0 mean(test3_5w_v) mean(test3_20w_v)],[0 mean(test3_5w_dt) mean(test3_20w_dt)])
-%legend({'test1 free convection' 'test 2 forec laminar' 'test 3 forced terbulant'},Location='best')
-
-
-%plot([mean(test425pf(:,1)) mean(test450pf(:,1))],[mean(test425pf(:,2)) mean(test450pf(:,2))])
 
 legend({'test1 free convection' 'test 2 forec laminar' 'test 3 forced terbulant'},Location='best')
 title('delta over wattage test 2')
 
 ylabel('Temperature Difference [\DeltaT]')
 xlabel('Electrical power P_e_l [W]')
-
-scatter(test25w_v,test25w_dt,color='black',Markerfacecolor='red')
-scatter(sst2_v,sst2_dt,color='red',Markerfacecolor='red')
-
-
-scatter(test3_5w_v,test3_5w_dt,Markerfacecolor='blue')
-scatter(test3_20w_v,test3_20w_dt,Markerfacecolor='blue')
-
-%scatter(test425pf(:,1),test425pf(:,2),Markerfacecolor='green')
-%scatter(test450pf(:,1),test450pf(:,2),Markerfacecolor='green')
 
 hold off
 
