@@ -1,6 +1,7 @@
 clear; close all; clc
 
-ssf = [10.0,  47.5;
+figure(1)
+ssf_test1 = [10.0,  47.5;
 10.0, 47.5;
 10.0, 47.5;
 10.0, 47.5;
@@ -13,6 +14,15 @@ ssf = [10.0,  47.5;
 10.0, 47.5;];
 
 
+plot([0 mean(ssf_test1(:,1))] ,[0 mean(ssf_test1(:,1))])
+title('delta over wattage test 1')
+
+ylabel('Temperature Difference [\DeltaT]')
+xlabel('Electrical power P_e_l [W]')
+
+% skipping page 74 as all of our temp differences are the same
+
+figure(2)
 sst2 = [19.8, 34.9;
 20.1, 34.9;
 20.3, 34.9;
