@@ -14,7 +14,7 @@ ssf_test1 = [10.0,  47.5;
 10.0, 47.5;];
 
 
-plot([0 mean(ssf_test1(:,1))] ,[0 mean(ssf_test1(:,1))])
+plot([0 mean(ssf_test1(:,1))] ,[0 mean(ssf_test1(:,2))])
 title('delta over wattage test 1')
 
 ylabel('Temperature Difference [\DeltaT]')
@@ -60,8 +60,10 @@ test25w = [5.1	,11.2;
 %10.0,10.8;
 %10.0,10.9;];
 
-plot([mean(test25w(:,1)) mean(sst2(:,1))],[mean(test25w(:,2)) mean(sst2(:,2))])
+plot([0 mean(ssf_test1(:,1))] ,[0 mean(ssf_test1(:,2))]) % test 1 
 hold on
+
+plot([0 mean(test25w(:,1)) mean(sst2(:,1))],[0 mean(test25w(:,2)) mean(sst2(:,2))]) % test 2
 
 
 test3_5w = [4.9,7.3;
@@ -88,7 +90,7 @@ test3_20w25pf = [20.2,33.7;
 19.8,33.7;
 19.9,33.6;];
 
-plot([mean(test3_5w(:,1)) mean(test3_20w25pf(:,1))],[mean(test3_5w(:,2)) mean(test3_20w25pf(:,2))])
+plot([0 mean(test3_5w(:,1)) mean(test3_20w25pf(:,1))],[0 mean(test3_5w(:,2)) mean(test3_20w25pf(:,2))])
 
 
 test425pf = [10.0,18.2;
@@ -118,7 +120,7 @@ test450pf =[10.0,10.8;
 %plot([mean(test425pf(:,1)) mean(test450pf(:,1))],[mean(test425pf(:,2)) mean(test450pf(:,2))])
 
 %}
-legend({'test 2' 'test 3' 'test 4'},Location='best')
+legend({'test1 free convection' 'test 2 forec laminar' 'test 3 forced terbulant'},Location='best')
 title('delta over wattage test 2')
 
 ylabel('Temperature Difference [\DeltaT]')
