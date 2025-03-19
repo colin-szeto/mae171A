@@ -126,33 +126,87 @@ avgRe_vals_Pope = [mean(Re_values_Pope{1}), mean(Re_values_Pope{2})];
 avgRe_vals_Pope_Fan = [mean(Re_values_Pope{3}), mean(Re_values_Pope{4})];
 avgNu_vals_Pope_Fan = [mean(Nu_values_Pope{3}), mean(Nu_values_Pope{4})];
 %% Plot the line
-figure;
+figure(1);
 plot(Power_vals_BigFin, avgDeltaT_vals_BigFin, '-r', 'LineWidth', 2, 'MarkerSize', 8);
 hold on
-errorbar(Power_vals_BigFin(1),avgDeltaT_vals_BigFin(1),std(deltaT_values_BigFin{2}),'vertical',color='r',LineWidth=2)
-errorbar(Power_vals_BigFin(2),avgDeltaT_vals_BigFin(2),std(deltaT_values_BigFin{4}),'vertical',color='r',LineWidth=2)
-
-
-plot(Power_vals_FullFinPlate, avgDeltaT_vals_FullFinPlate, '-k', 'LineWidth', 2, 'MarkerSize', 8);
-errorbar(Power_vals_FullFinPlate(1),avgDeltaT_vals_FullFinPlate(1),std(deltaT_values_FullFinPlate{1}),'vertical',color='k',LineWidth=2)
-errorbar(Power_vals_FullFinPlate(2),avgDeltaT_vals_FullFinPlate(2),std(deltaT_values_FullFinPlate{4}),'vertical',color='k',LineWidth=2)
-
-plot(Power_vals_3row, avgDeltaT_vals_3row, '-b', 'LineWidth', 2, 'MarkerSize', 8);
-errorbar(Power_vals_3row(1),avgDeltaT_vals_3row(1),std(deltaT_values_3row{1}),'vertical',color='b',LineWidth=2) % 10 W
-errorbar(Power_vals_3row(2),avgDeltaT_vals_3row(2),std(deltaT_values_3row{3}),'vertical',color='b',LineWidth=2) % 20 W
-
-plot(Power_vals_Pope, avgDeltaT_vals_Pope, '-g', 'LineWidth', 2, 'MarkerSize', 8);
-errorbar(Power_vals_Pope(1),avgDeltaT_vals_Pope(1),std(deltaT_values_Pope{1}),'vertical',color='g',LineWidth=2)
-errorbar(Power_vals_Pope(2),avgDeltaT_vals_Pope(2),std(deltaT_values_Pope{2}),'vertical',color='g',LineWidth=2)
+errorbar(   Power_vals_BigFin(1)        ,avgDeltaT_vals_BigFin(1),std(deltaT_values_BigFin{2}),'vertical',color='r',LineWidth=2)
+errorbar(   Power_vals_BigFin(2)        ,avgDeltaT_vals_BigFin(2),std(deltaT_values_BigFin{4}),'vertical',color='r',LineWidth=2)
+plot(       Power_vals_FullFinPlate     ,avgDeltaT_vals_FullFinPlate, '-k', 'LineWidth', 2, 'MarkerSize', 8);
+errorbar(   Power_vals_FullFinPlate(1)  ,avgDeltaT_vals_FullFinPlate(1),std(deltaT_values_FullFinPlate{1}),'vertical',color='k',LineWidth=2)
+errorbar(   Power_vals_FullFinPlate(2)  ,avgDeltaT_vals_FullFinPlate(2),std(deltaT_values_FullFinPlate{4}),'vertical',color='k',LineWidth=2)
+plot(       Power_vals_3row             ,avgDeltaT_vals_3row, '-b', 'LineWidth', 2, 'MarkerSize', 8);
+errorbar(   Power_vals_3row(1)          ,avgDeltaT_vals_3row(1),std(deltaT_values_3row{1}),'vertical',color='b',LineWidth=2) % 10 W
+errorbar(   Power_vals_3row(2)          ,avgDeltaT_vals_3row(2),std(deltaT_values_3row{3}),'vertical',color='b',LineWidth=2) % 20 W
+plot(       Power_vals_Pope             ,avgDeltaT_vals_Pope, '-g', 'LineWidth', 2, 'MarkerSize', 8);
+errorbar(   Power_vals_Pope(1)          ,avgDeltaT_vals_Pope(1),std(deltaT_values_Pope{1}),'vertical',color='g',LineWidth=2)
+errorbar(   Power_vals_Pope(2)          ,avgDeltaT_vals_Pope(2),std(deltaT_values_Pope{2}),'vertical',color='g',LineWidth=2)
 hold off
-
+grid on
 xlabel('Power (W)');
 ylabel('Average \DeltaT (°C)');
 title('Fin Design: Power vs. Average Temperature Difference');
 legend('BigFin','','','FullPlate','','','3row','','','Pope','','',location = 'northwest')
 
+%Power_vals_BigFin(1)       % -std(deltaT_values_BigFin{2})
+%Power_vals_BigFin(2)       % -std(deltaT_values_BigFin{4})
+%Power_vals_FullFinPlate(1) % - std(deltaT_values_FullFinPlate{1})
+%Power_vals_FullFinPlate(2) % - std(deltaT_values_FullFinPlate{4})
+%Power_vals_3row(1)         %-std(deltaT_values_3row{1})        
+%Power_vals_3row(2)         %-std(deltaT_values_3row{3})        
+%Power_vals_Pope(1)         %-std(deltaT_values_Pope{1})         
+%Power_vals_Pope(2)         %-std(deltaT_values_Pope{2})         
+
+%std(deltaT_values_BigFin{2})
+%std(deltaT_values_BigFin{4})
+%std(deltaT_values_FullFinPlate{1})
+%std(deltaT_values_FullFinPlate{4})
+%std(deltaT_values_3row{1})        
+%std(deltaT_values_3row{3})        
+%std(deltaT_values_Pope{1})         
+%std(deltaT_values_Pope{2})      
+
+%fprintf('avgDeltaT_vals\n %15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f\n',avgDeltaT_vals_BigFin(1)      ,avgDeltaT_vals_BigFin(2)      ,avgDeltaT_vals_FullFinPlate(1),avgDeltaT_vals_FullFinPlate(2),avgDeltaT_vals_3row(1)        ,avgDeltaT_vals_3row(2)        ,avgDeltaT_vals_Pope(1)        ,avgDeltaT_vals_Pope(2));
+%fprintf('powerVals\n %15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f\n',Power_vals_BigFin(1)      ,Power_vals_BigFin(2)      ,Power_vals_FullFinPlate(1),Power_vals_FullFinPlate(2),Power_vals_3row(1)        ,Power_vals_3row(2)        ,Power_vals_Pope(1)        ,Power_vals_Pope(2));
+%fprintf('std_vals\n  %15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f,\n%15.5f\n',std(deltaT_values_BigFin{2}),std(deltaT_values_BigFin{4}),std(deltaT_values_FullFinPlate{1}),std(deltaT_values_FullFinPlate{4}),std(deltaT_values_3row{1})        ,std(deltaT_values_3row{3})        ,std(deltaT_values_Pope{1})         ,std(deltaT_values_Pope{2}));
+
+power_vals_all = [...
+Power_vals_BigFin(1)  ;
+Power_vals_BigFin(2);
+Power_vals_FullFinPlate(1);
+Power_vals_FullFinPlate(2);
+Power_vals_3row(1)        ;
+Power_vals_3row(2)        ;
+Power_vals_Pope(1);
+Power_vals_Pope(2);];
+
+avgRe_vals_all = [...
+avgDeltaT_vals_BigFin(1)      ;
+avgDeltaT_vals_BigFin(2)      ;
+avgDeltaT_vals_FullFinPlate(1);
+avgDeltaT_vals_FullFinPlate(2);
+avgDeltaT_vals_3row(1)        ;
+avgDeltaT_vals_3row(2)        ;
+avgDeltaT_vals_Pope(1)        ;
+avgDeltaT_vals_Pope(2)        ;];
+
+std_vals_all = [...
+std(deltaT_values_BigFin{2});
+std(deltaT_values_BigFin{4});
+std(deltaT_values_FullFinPlate{1});
+std(deltaT_values_FullFinPlate{4});
+std(deltaT_values_3row{1});
+std(deltaT_values_3row{3});
+std(deltaT_values_Pope{1});
+std(deltaT_values_Pope{2});];
+
+clc
+fprintf('deltaT_vals_all\n');
+for i = 1:length(avgRe_vals_all)
+fprintf('%2.0f, %15.5f, %15.5f, %15.5f , %15.5f  \n',power_vals_all(i),avgRe_vals_all(i),std_vals_all(i),avgRe_vals_all(i)-std_vals_all(i), avgRe_vals_all(i)+std_vals_all(i) )
+end
+
 %%
-figure;
+figure(2);
 h = plot(Power_vals_BigFin, avgRe_vals_BigFin, '-r', 'LineWidth', 2, 'MarkerSize', 8);
 hold on
 errorbar(Power_vals_BigFin(1),avgRe_vals_BigFin(1),std(Re_values_BigFin{2}),'vertical',color='r',LineWidth=2)
@@ -174,13 +228,48 @@ xlabel('Power (W)');
 ylabel('Re');
 title('Fin Design: Power vs. Re');
 legend('BigFin','','','FullPlate','','','3row','','','Pope','','',location = 'best')
-
+grid on
 ax = ancestor(h, 'axes');
 ax.XAxis.Exponent = 0;
 xtickformat('%.0f');
 
+power_vals_all = [...
+Power_vals_BigFin(1)  ;
+Power_vals_BigFin(2);
+Power_vals_FullFinPlate(1);
+Power_vals_FullFinPlate(2);
+Power_vals_3row(1)        ;
+Power_vals_3row(2)        ;
+Power_vals_Pope(1);
+Power_vals_Pope(2);];
+
+avgRe_vals_all = [...
+avgRe_vals_BigFin(1)      ;
+avgRe_vals_BigFin(2)      ;
+avgRe_vals_FullFinPlate(1);
+avgRe_vals_FullFinPlate(2);
+avgRe_vals_3row(1)        ;
+avgRe_vals_3row(2)        ;
+avgRe_vals_Pope(1)        ;
+avgRe_vals_Pope(2)        ;];
+
+std_vals_all = [...
+std(Re_values_BigFin{2});
+std(Re_values_BigFin{4});
+std(Re_values_FullFinPlate{1});
+std(Re_values_FullFinPlate{4});
+std(Re_values_3row{1});
+std(Re_values_3row{3});
+std(Re_values_Pope{1});
+std(Re_values_Pope{2});];
+
+
+fprintf('avgRe_vals_all\n');
+for i = 1:length(avgRe_vals_all)
+fprintf('%2.0f, %15.5f, %15.5f, %15.5f , %15.5f  \n',power_vals_all(i),avgRe_vals_all(i),std_vals_all(i),avgRe_vals_all(i)-std_vals_all(i), avgRe_vals_all(i)+std_vals_all(i) )
+end
 %%
-figure;
+figure(3);
 h = plot(avgRe_vals_BigFin_Fan, avgNu_vals_BigFin_Fan, '-r', 'LineWidth', 2, 'MarkerSize', 8);
 hold on
 errorbar(avgRe_vals_BigFin_Fan(1),avgNu_vals_BigFin_Fan(1),std(Nu_values_BigFin{1}),'vertical',color='r',LineWidth=2)
@@ -202,9 +291,47 @@ xlabel('Re');
 ylabel('Nu');
 title('Fin Design: Re vs. Nu of 25% and 50% fan');
 legend('BigFin','','','FullPlate','','','3row','','','Pope','','',location = 'northwest')
-
+grid on
 ax = ancestor(h, 'axes');
 ax.XAxis.Exponent = 0;
 xtickformat('%.0f');
 
+
+power_vals_all = [...
+avgRe_vals_BigFin_Fan(1)      ;
+avgRe_vals_BigFin_Fan(2)      ;
+avgRe_vals_FullFinPlate_Fan(1);
+avgRe_vals_FullFinPlate_Fan(2);
+avgRe_vals_3row_Fan(1)        ;
+avgRe_vals_3row_Fan(2)        ;
+avgRe_vals_Pope_Fan(1)        ;
+avgRe_vals_Pope_Fan(2)        ;];
+
+
+avgRe_vals_all = [...
+avgNu_vals_BigFin_Fan(1)  ;
+avgNu_vals_BigFin_Fan(2);
+avgNu_vals_FullFinPlate_Fan(1);
+avgNu_vals_FullFinPlate_Fan(2);
+avgNu_vals_3row_Fan(1)        ;
+avgNu_vals_3row_Fan(2)        ;
+avgNu_vals_Pope_Fan(1);
+avgNu_vals_Pope_Fan(2);];
+
+
+std_vals_all = [...
+std(Re_values_BigFin{1});
+std(Re_values_BigFin{2});
+std(Re_values_FullFinPlate{1});
+std(Re_values_FullFinPlate{2});
+std(Re_values_3row{2});
+std(Re_values_3row{4});
+std(Re_values_Pope{3});
+std(Re_values_Pope{4});];
+
+clc
+fprintf('avgRe_Nu_all\n');
+for i = 1:length(avgRe_vals_all)
+fprintf('%2.0f, %15.5f, %15.5f, %15.5f , %15.5f  \n',power_vals_all(i),avgRe_vals_all(i),std_vals_all(i),avgRe_vals_all(i)-std_vals_all(i), avgRe_vals_all(i)+std_vals_all(i) )
+end
 
