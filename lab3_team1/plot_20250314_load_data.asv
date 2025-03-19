@@ -138,12 +138,12 @@ mean(test3_5w_v_og) ;
 mean(test3_20w_v_og);];
 
 avgRe_vals_all = [...
-mean(sst2_Nu);
-mean(test25w_Nu);
-mean(test3_5w_Nu);
-mean(test3_20w_Nu);
-mean(test3_5w_Nu_og);
-mean(test3_20w_Nu_og);];
+ mean(sst2_Nu);
+ mean(test25w_Nu);
+ mean(test3_5w_Nu);
+ mean(test3_20w_Nu);
+ mean(test3_5w_Nu_og);
+ mean(test3_20w_Nu_og);];
 
 std_vals_all = [...
 std(test25w_Nu);
@@ -194,24 +194,3 @@ xlabel('Re')
 ax = ancestor(h, 'axes');
 ax.XAxis.Exponent = 0;
 xtickformat('%.0f');
-
-
-clc
-
-avgRe_vals_all = [...
-mean(test4_25p_re);
-mean(test4_40p_re);];
-
- power_vals_all = [...
-mean(test4_25p_Nu);
-mean(test4_40p_Nu);];
-
-std_vals_all = [...
-std(test4_25p_re);
-std(test4_40p_re);];
-
-clc
-fprintf('deltaT_vals_all\n');
-for i = 1:length(avgRe_vals_all)
-fprintf('%2.0f, %15.5f, %15.5f, %15.5f , %15.5f  \n',power_vals_all(i),avgRe_vals_all(i),std_vals_all(i),avgRe_vals_all(i)-std_vals_all(i), avgRe_vals_all(i)+std_vals_all(i) )
-end
