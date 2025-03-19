@@ -153,7 +153,7 @@ legend('BigFin','','','FullPlate','','','3row','','','Pope','','',location = 'no
 
 %%
 figure;
-plot(Power_vals_BigFin, avgRe_vals_BigFin, '-r', 'LineWidth', 2, 'MarkerSize', 8);
+h = plot(Power_vals_BigFin, avgRe_vals_BigFin, '-r', 'LineWidth', 2, 'MarkerSize', 8);
 hold on
 errorbar(Power_vals_BigFin(1),avgRe_vals_BigFin(1),std(Re_values_BigFin{2}),'vertical',color='r',LineWidth=2)
 errorbar(Power_vals_BigFin(2),avgRe_vals_BigFin(2),std(Re_values_BigFin{4}),'vertical',color='r',LineWidth=2)
@@ -175,9 +175,13 @@ ylabel('Re');
 title('Fin Design: Power vs. Re');
 legend('BigFin','','','FullPlate','','','3row','','','Pope','','',location = 'best')
 
+ax = ancestor(h, 'axes');
+ax.XAxis.Exponent = 0;
+xtickformat('%.0f');
+
 %%
 figure;
-plot(avgRe_vals_BigFin_Fan, avgNu_vals_BigFin_Fan, '-r', 'LineWidth', 2, 'MarkerSize', 8);
+h = plot(avgRe_vals_BigFin_Fan, avgNu_vals_BigFin_Fan, '-r', 'LineWidth', 2, 'MarkerSize', 8);
 hold on
 errorbar(avgRe_vals_BigFin_Fan(1),avgNu_vals_BigFin_Fan(1),std(Nu_values_BigFin{1}),'vertical',color='r',LineWidth=2)
 errorbar(avgRe_vals_BigFin_Fan(2),avgNu_vals_BigFin_Fan(2),std(Nu_values_BigFin{3}),'vertical',color='r',LineWidth=2)
@@ -198,5 +202,9 @@ xlabel('Re');
 ylabel('Nu');
 title('Fin Design: Re vs. Nu of 25% and 50% fan');
 legend('BigFin','','','FullPlate','','','3row','','','Pope','','',location = 'northwest')
+
+ax = ancestor(h, 'axes');
+ax.XAxis.Exponent = 0;
+xtickformat('%.0f');
 
 
